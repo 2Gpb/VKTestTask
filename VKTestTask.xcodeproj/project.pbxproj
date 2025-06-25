@@ -7,26 +7,13 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		D022EBED2E0C635F001022E8 /* VKTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D022EC7B2E0C657E001022E8 /* VKTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = VKTestTask.app; path = "/Users/peter/Documents/iOS/Study/VKTestTask/build/Debug-iphoneos/VKTestTask.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		D022EBFF2E0C6360001022E8 /* Exceptions for "VKTestTask" folder in "VKTestTask" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = D022EBEC2E0C635F001022E8 /* VKTestTask */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D022EBEF2E0C635F001022E8 /* VKTestTask */ = {
+		D022EC662E0C64B9001022E8 /* Test */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				D022EBFF2E0C6360001022E8 /* Exceptions for "VKTestTask" folder in "VKTestTask" target */,
-			);
-			path = VKTestTask;
+			path = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -45,17 +32,8 @@
 		D022EBE42E0C635F001022E8 = {
 			isa = PBXGroup;
 			children = (
-				D022EBEF2E0C635F001022E8 /* VKTestTask */,
-				D022EBEE2E0C635F001022E8 /* Products */,
+				D022EC662E0C64B9001022E8 /* Test */,
 			);
-			sourceTree = "<group>";
-		};
-		D022EBEE2E0C635F001022E8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D022EBED2E0C635F001022E8 /* VKTestTask.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,13 +52,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				D022EBEF2E0C635F001022E8 /* VKTestTask */,
+				D022EC662E0C64B9001022E8 /* Test */,
 			);
 			name = VKTestTask;
 			packageProductDependencies = (
 			);
 			productName = VKTestTask;
-			productReference = D022EBED2E0C635F001022E8 /* VKTestTask.app */;
+			productReference = D022EC7B2E0C657E001022E8 /* VKTestTask.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -108,7 +86,7 @@
 			mainGroup = D022EBE42E0C635F001022E8;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = D022EBEE2E0C635F001022E8 /* Products */;
+			productRefGroup = D022EBE42E0C635F001022E8;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -146,10 +124,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = VKTestTask/Info.plist;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -173,10 +152,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = VKTestTask/Info.plist;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -244,6 +224,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -301,6 +282,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
