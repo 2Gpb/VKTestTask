@@ -8,18 +8,18 @@ struct ReviewCellConfig {
 
     /// Идентификатор конфигурации. Можно использовать для поиска конфигурации в массиве.
     let id = UUID()
-    /// Максимальное отображаемое количество строк текста. По умолчанию 3.
-    var maxLines = 3
-    
+    /// Имя фамилия.
     let fullName: NSAttributedString
+    /// Имадж звезд рейтинга.
     let ratingImage: UIImage
-    
     /// Текст отзыва.
     let reviewText: NSAttributedString
     /// Время создания отзыва.
     let created: NSAttributedString
     /// Замыкание, вызываемое при нажатии на кнопку "Показать полностью...".
-    let onTapShowMore: (UUID) -> Void
+    let onChangeReviewTextState: (UUID, ReviewTextState) -> Void
+    /// Стейт текста относительно отображения текста отзыва.
+    var textState: ReviewTextState = .collapsed
 
     /// Объект, хранящий посчитанные фреймы для ячейки отзыва.
     fileprivate let layout = ReviewCellLayout()
@@ -37,8 +37,9 @@ extension ReviewCellConfig: TableCellConfig {
         cell.fullNameLabel.attributedText = fullName
         cell.reviewTextLabel.attributedText = reviewText
         cell.ratingImageView.image = ratingImage
-        cell.reviewTextLabel.numberOfLines = maxLines
+        cell.reviewTextLabel.numberOfLines = textState.maxLines
         cell.createdLabel.attributedText = created
+        cell.showMoreButton.setAttributedTitle(textState.buttonTitle, for: .normal)
         cell.config = self
     }
 
@@ -50,6 +51,35 @@ extension ReviewCellConfig: TableCellConfig {
 
 }
 
+// MARK: - Internal
+
+extension ReviewCellConfig {
+    
+    enum ReviewTextState {
+        case collapsed
+        case expanded
+        
+        var maxLines: Int {
+            switch self {
+            case .collapsed:
+                return 3
+            case .expanded:
+                return 0
+            }
+        }
+        
+        var buttonTitle: NSAttributedString {
+            switch self {
+            case .collapsed:
+                return Config.showMoreText
+            case .expanded:
+                return Config.hideText
+            }
+        }
+    }
+    
+}
+
 // MARK: - Private
 
 private extension ReviewCellConfig {
@@ -58,6 +88,9 @@ private extension ReviewCellConfig {
     static let showMoreText = "Показать полностью..."
         .attributed(font: .showMore, color: .showMore)
 
+    /// Текст кнопки "Скрыть".
+    static let hideText = "Скрыть"
+        .attributed(font: .showMore, color: .showMore)
 }
 
 // MARK: - Cell
@@ -136,8 +169,21 @@ private extension ReviewCell {
         contentView.addSubview(showMoreButton)
         showMoreButton.contentVerticalAlignment = .fill
         showMoreButton.setAttributedTitle(Config.showMoreText, for: .normal)
+        showMoreButton.titleLabel?.lineBreakMode = .byWordWrapping
+        showMoreButton.addTarget(self, action: #selector(showMoreTapped), for: .touchUpInside)
     }
+}
 
+// MARK: - Actions
+
+private extension ReviewCell {
+    
+    @objc
+    func showMoreTapped() {
+        guard let config else { return }
+        let newState: ReviewCellConfig.ReviewTextState = config.textState == .collapsed ? .expanded : .collapsed
+        config.onChangeReviewTextState(config.id, newState)
+    }
 }
 
 // MARK: - Layout
@@ -154,6 +200,7 @@ private final class ReviewCellLayout {
 
     private static let photoSize = CGSize(width: 55.0, height: 66.0)
     private static let showMoreButtonSize = Config.showMoreText.size()
+    private static let hideButtonSize = Config.hideText.size()
 
     // MARK: - Фреймы
 
@@ -217,11 +264,11 @@ private final class ReviewCellLayout {
         
         if !config.reviewText.isEmpty() {
             // Высота текста с текущим ограничением по количеству строк.
-            let currentTextHeight = (config.reviewText.font()?.lineHeight ?? .zero) * CGFloat(config.maxLines)
+            let currentTextHeight = (config.reviewText.font()?.lineHeight ?? .zero) * CGFloat(config.textState.maxLines)
             // Максимально возможная высота текста, если бы ограничения не было.
             let actualTextHeight = config.reviewText.boundingRect(width: width ).size.height
             // Показываем кнопку "Показать полностью...", если максимально возможная высота текста больше текущей.
-            showShowMoreButton = config.maxLines != .zero && actualTextHeight > currentTextHeight
+            showShowMoreButton = actualTextHeight > currentTextHeight
             
             reviewTextLabelFrame = CGRect(
                 origin: CGPoint(x: leftOffsetWithAvatar, y: maxY),
@@ -233,7 +280,7 @@ private final class ReviewCellLayout {
         if showShowMoreButton {
             showMoreButtonFrame = CGRect(
                 origin: CGPoint(x: leftOffsetWithAvatar, y: maxY),
-                size: Self.showMoreButtonSize
+                size: config.textState == .expanded ? Self.hideButtonSize : Self.showMoreButtonSize
             )
             maxY = showMoreButtonFrame.maxY + showMoreToCreatedSpacing
         } else {

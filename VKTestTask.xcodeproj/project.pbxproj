@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		D022EC7B2E0C657E001022E8 /* VKTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = VKTestTask.app; path = "/Users/peter/Documents/iOS/Study/VKTestTask/build/Debug-iphoneos/VKTestTask.app"; sourceTree = "<absolute>"; };
+		D068E6952E0DB3D7003C4FC8 /* VKTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = VKTestTask.app; path = "/Users/peter/Documents/iOS/Study/VKTestTask/build/Debug-iphoneos/VKTestTask.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D022EC662E0C64B9001022E8 /* Test */ = {
+		D022EC662E0C64B9001022E8 /* Source */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Test;
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +32,7 @@
 		D022EBE42E0C635F001022E8 = {
 			isa = PBXGroup;
 			children = (
-				D022EC662E0C64B9001022E8 /* Test */,
+				D022EC662E0C64B9001022E8 /* Source */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,13 +52,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				D022EC662E0C64B9001022E8 /* Test */,
+				D022EC662E0C64B9001022E8 /* Source */,
 			);
 			name = VKTestTask;
 			packageProductDependencies = (
 			);
 			productName = VKTestTask;
-			productReference = D022EC7B2E0C657E001022E8 /* VKTestTask.app */;
+			productReference = D068E6952E0DB3D7003C4FC8 /* VKTestTask.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
