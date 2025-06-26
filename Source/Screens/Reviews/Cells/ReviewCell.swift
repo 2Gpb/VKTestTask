@@ -8,47 +8,22 @@ struct ReviewCellConfig {
 
     /// Идентификатор конфигурации. Можно использовать для поиска конфигурации в массиве.
     let id = UUID()
-    /// Максимальное отображаемое количество строк текста. По умолчанию 3.
-//    var maxLines = 3
-    
+    /// Имя фамилия.
     let fullName: NSAttributedString
+    /// Имадж звезд рейтинга.
     let ratingImage: UIImage
-    
     /// Текст отзыва.
     let reviewText: NSAttributedString
     /// Время создания отзыва.
     let created: NSAttributedString
     /// Замыкание, вызываемое при нажатии на кнопку "Показать полностью...".
     let onChangeReviewTextState: (UUID, ReviewTextState) -> Void
-    
+    /// Стейт текста относительно отображения текста отзыва.
     var textState: ReviewTextState = .collapsed
 
     /// Объект, хранящий посчитанные фреймы для ячейки отзыва.
     fileprivate let layout = ReviewCellLayout()
 
-}
-
-enum ReviewTextState {
-    case collapsed
-    case expanded
-
-    var maxLines: Int {
-        switch self {
-        case .collapsed:
-            return 3
-        case .expanded:
-            return 0
-        }
-    }
-
-    var buttonTitle: NSAttributedString {
-        switch self {
-        case .collapsed:
-            return Config.showMoreText
-        case .expanded:
-            return Config.hideText
-        }
-    }
 }
 
 // MARK: - TableCellConfig
@@ -76,6 +51,35 @@ extension ReviewCellConfig: TableCellConfig {
 
 }
 
+// MARK: - Internal
+
+extension ReviewCellConfig {
+    
+    enum ReviewTextState {
+        case collapsed
+        case expanded
+        
+        var maxLines: Int {
+            switch self {
+            case .collapsed:
+                return 3
+            case .expanded:
+                return 0
+            }
+        }
+        
+        var buttonTitle: NSAttributedString {
+            switch self {
+            case .collapsed:
+                return Config.showMoreText
+            case .expanded:
+                return Config.hideText
+            }
+        }
+    }
+    
+}
+
 // MARK: - Private
 
 private extension ReviewCellConfig {
@@ -84,6 +88,7 @@ private extension ReviewCellConfig {
     static let showMoreText = "Показать полностью..."
         .attributed(font: .showMore, color: .showMore)
 
+    /// Текст кнопки "Скрыть".
     static let hideText = "Скрыть"
         .attributed(font: .showMore, color: .showMore)
 }
@@ -169,12 +174,14 @@ private extension ReviewCell {
     }
 }
 
+// MARK: - Actions
+
 private extension ReviewCell {
     
     @objc
     func showMoreTapped() {
         guard let config else { return }
-        let newState: ReviewTextState = config.textState == .collapsed ? .expanded : .collapsed
+        let newState: ReviewCellConfig.ReviewTextState = config.textState == .collapsed ? .expanded : .collapsed
         config.onChangeReviewTextState(config.id, newState)
     }
 }
