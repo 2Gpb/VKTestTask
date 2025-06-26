@@ -151,7 +151,9 @@ extension ReviewsViewModel: UITableViewDelegate {
         targetContentOffset: UnsafeMutablePointer<CGPoint>
     ) {
         if shouldLoadNextPage(scrollView: scrollView, targetOffsetY: targetContentOffset.pointee.y) {
-            getReviews()
+            DispatchQueue.global().async {
+                self.getReviews()
+            }
         }
     }
 
