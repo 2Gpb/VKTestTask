@@ -42,7 +42,12 @@ extension ReviewsViewModel {
         }
         
         state.shouldLoad = false
-        reviewsProvider.getReviews(completion: self.gotReviews)
+        reviewsProvider.getReviews(completion: gotReviews)
+    }
+    
+    func refreshReviews() {
+        state.offset = 0
+        reviewsProvider.getReviews(completion: gotReviews)
     }
 
 }
@@ -61,7 +66,14 @@ private extension ReviewsViewModel {
         do {
             let data = try result.get()
             let reviews = try decoder.decode(Reviews.self, from: data)
-            state.items += reviews.items.map(makeReviewItem)
+            let newItems = reviews.items.map(makeReviewItem)
+            
+            if state.offset == 0 {
+                state.items = newItems
+            } else {
+                state.items.append(contentsOf: newItems)
+            }
+            
             state.offset += state.limit
             state.shouldLoad = state.offset < reviews.count
             state.countItem = makeCountItemItem(reviews.count)
