@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		D068E6952E0DB3D7003C4FC8 /* VKTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = VKTestTask.app; path = "/Users/peter/Documents/iOS/Study/VKTestTask/build/Debug-iphoneos/VKTestTask.app"; sourceTree = "<absolute>"; };
+		D0530ED02E0E063300AA587B /* VKTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = VKTestTask.app; path = "/Users/peter/Documents/iOS/Study/VKTestTask/build/Debug-iphoneos/VKTestTask.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -58,7 +58,7 @@
 			packageProductDependencies = (
 			);
 			productName = VKTestTask;
-			productReference = D068E6952E0DB3D7003C4FC8 /* VKTestTask.app */;
+			productReference = D0530ED02E0E063300AA587B /* VKTestTask.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

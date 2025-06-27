@@ -44,6 +44,17 @@ private extension ReviewsViewController {
                 reviewsView?.tableView.reloadData()
             }
         }
+        
+        viewModel.onLoadingStateChange = { [weak reviewsView] isLoading in
+            DispatchQueue.main.async {
+                guard let reviewsView else { return }
+                if isLoading {
+                    reviewsView.activityIndicator.startAnimating()
+                } else {
+                    reviewsView.activityIndicator.stopAnimating()
+                }
+            }
+        }
     }
-
+    
 }

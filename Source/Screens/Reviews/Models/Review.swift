@@ -1,5 +1,6 @@
 /// Модель отзыва.
 struct Review: Codable {
+    
     let firstName: String
     let lastName: String
     let rating: Int
@@ -16,4 +17,5 @@ struct Review: Codable {
         case text
         case created
     }
+    
 }
