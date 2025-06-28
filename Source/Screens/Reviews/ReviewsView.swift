@@ -3,22 +3,23 @@ import UIKit
 final class ReviewsView: UIView {
 
     let tableView = UITableView()
-    let activityIndicator = UIActivityIndicatorView(style: .large)
+    let loadingIndicator = LoadingIndicatorView()
     let refreshControl: UIRefreshControl = UIRefreshControl()
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
     }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func layoutSubviews() {
         super.layoutSubviews()
         tableView.frame = bounds.inset(by: safeAreaInsets)
-        activityIndicator.center = CGPoint(x: bounds.midX, y: bounds.midY)
+        loadingIndicator.center = center
     }
 
 }
@@ -48,9 +49,7 @@ private extension ReviewsView {
     }
     
     private func setupActivityIndicator() {
-        addSubview(activityIndicator)
-        activityIndicator.color = .lightGray
-        activityIndicator.isUserInteractionEnabled = false
+        addSubview(loadingIndicator)
     }
 
 }

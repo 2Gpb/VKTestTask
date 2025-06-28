@@ -64,8 +64,8 @@ private extension ReviewsViewController {
                 guard let self else { return }
                 
                 isLoading
-                ? self.reviewsView.activityIndicator.startAnimating()
-                : self.reviewsView.activityIndicator.stopAnimating()
+                ? self.reviewsView.loadingIndicator.startAnimating()
+                : self.reviewsView.loadingIndicator.stopAnimating()
             }
         }
     }

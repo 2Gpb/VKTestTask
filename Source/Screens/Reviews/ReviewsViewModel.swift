@@ -5,7 +5,6 @@ final class ReviewsViewModel: NSObject {
 
     /// Замыкание, вызываемое при изменении `state`.
     var onStateChange: ((State) -> Void)?
-    
     /// Замыкание, вызываемое при изменении `loadingState`.
     var onLoadingStateChange: ((Bool) -> Void)?
 

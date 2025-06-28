@@ -50,6 +50,7 @@ final class ShimmerView: UIView {
         setUpGradient()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError(Constants.Error.value)
     }
@@ -86,9 +87,9 @@ private extension ShimmerView {
     func setUpGradient() {
         gradientLayer.startPoint = Constants.Gradient.startPoint
         gradientLayer.endPoint = Constants.Gradient.endPoint
-        self.layer.addSublayer(gradientLayer)
         gradientLayer.colors = Constants.Gradient.colors
         gradientLayer.locations = Constants.Gradient.locations
+        layer.addSublayer(gradientLayer)
     }
     
 }
