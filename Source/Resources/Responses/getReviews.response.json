@@ -1,10 +1,11 @@
 {
-    "count": 127,
+    "count": 147,
     "items": [
         {
             "first_name": "Иван",
             "last_name": "Петров",
             "rating": 5,
+            "photo_urls": [],
             "text": "Кроссовки хорошие. Удобные. Как по мне сшиты.",
             "created": "1 час назад"
         },
@@ -12,6 +13,12 @@
             "first_name": "Екатерина",
             "last_name": "Иванова",
             "rating": 3,
+            "photo_urls": [
+                "https://www.ninjaturtles.ru/forum/pic/12841.jpg",
+                "https://www.ninjaturtles.ru/wp-content/uploads/2012/08/Rafae%60l-kontsept-2008-2.jpg",
+                "https://i.pinimg.com/736x/62/8c/b0/628cb0e42e9043ab4b2ca24f1173d135.jpg",
+                "https://avavatar.ru/images/avatars/52/avatar_SiuLaDDW60uiYtI7.jpg"
+            ],
             "text": "Скользские ужасно.",
             "created": "12 минут назад"
         },
@@ -19,6 +26,13 @@
             "first_name": "Евгения",
             "last_name": "Петрова",
             "rating": 4,
+            "photo_urls": [
+                "https://rococo.flowers/wp-content/uploads/2024/06/image_rocotop101.jpeg",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi3vlT5dDAjGcfFMvv4WTu5P-go2UphNmvbQ&s",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS01RxpROJ6n6dS0NTfuvPwCyd2961IQaTAew&s",
+                "https://avatars.mds.yandex.net/i?id=0a8dc1da8b47ac63e1b06dadc55e1a3f_l-5141109-images-thumbs&n=27&h=480&w=480",
+                "https://avatarko.ru/img/kartinka/1/Crazy_Frog.jpg"
+            ],
             "text": "Прошла по снегу 30 метров, 5 раз упала. Спасибо мужу, поддерживал. Возврат, к сожалению.",
             "created": "35 минут назад"
         },
@@ -26,6 +40,7 @@
             "first_name": "Илья",
             "last_name": "Петров",
             "rating": 2,
+            "photo_urls": ["https://chef-konditer.com.ua/files/products/kartinka-iz-multfilma-shrek-1.500x500.jpg"],
             "text": "Понравилось отношение - несмотря на то, что заказ был выполнен не идеально, продавец был очень любезен и шёл... Прошла по снегу 30 метров, 5 раз упала. Спасибо мужу, поддерживал. Возврат, к сожалению.",
             "created": "минуту назад"
         },
@@ -33,6 +48,7 @@
             "first_name": "Никита",
             "last_name": "Иванов",
             "rating": 5,
+            "photo_urls": [],
             "text": "Отлично выглядят, хоть и скользковатые...",
             "created": "только что"
         },
@@ -40,6 +56,7 @@
             "first_name": "Олег",
             "last_name": "Николаев",
             "rating": 1,
+            "photo_urls": [],
             "text": "Ребёнок жалуется, что очень скользские. Пока шла до школы...",
             "created": "15 минут назад"
         },
@@ -47,6 +64,7 @@
             "first_name": "Николай",
             "last_name": "Петров",
             "rating": 2,
+            "photo_urls": [],
             "text": "",
             "created": "вчера в 12:39"
         },
@@ -56,6 +74,7 @@
             "first_name": "Иван",
             "last_name": "Петров",
             "rating": 5,
+            "photo_urls": [],
             "text": "Кроссовки хорошие. Удобные. Как по мне сшиты.",
             "created": "1 час назад"
         },
@@ -63,6 +82,12 @@
             "first_name": "Екатерина",
             "last_name": "Иванова",
             "rating": 3,
+            "photo_urls": [
+                "https://www.ninjaturtles.ru/forum/pic/12841.jpg",
+                "https://www.ninjaturtles.ru/wp-content/uploads/2012/08/Rafae%60l-kontsept-2008-2.jpg",
+                "https://i.pinimg.com/736x/62/8c/b0/628cb0e42e9043ab4b2ca24f1173d135.jpg",
+                "https://avavatar.ru/images/avatars/52/avatar_SiuLaDDW60uiYtI7.jpg"
+            ],
             "text": "Скользские ужасно.",
             "created": "12 минут назад"
         },
@@ -70,6 +95,13 @@
             "first_name": "Евгения",
             "last_name": "Петрова",
             "rating": 4,
+            "photo_urls": [
+                "https://rococo.flowers/wp-content/uploads/2024/06/image_rocotop101.jpeg",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi3vlT5dDAjGcfFMvv4WTu5P-go2UphNmvbQ&s",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS01RxpROJ6n6dS0NTfuvPwCyd2961IQaTAew&s",
+                "https://avatars.mds.yandex.net/i?id=0a8dc1da8b47ac63e1b06dadc55e1a3f_l-5141109-images-thumbs&n=27&h=480&w=480",
+                "https://avatarko.ru/img/kartinka/1/Crazy_Frog.jpg"
+            ],
             "text": "Прошла по снегу 30 метров, 5 раз упала. Спасибо мужу, поддерживал. Возврат, к сожалению.",
             "created": "35 минут назад"
         },
@@ -77,6 +109,7 @@
             "first_name": "Илья",
             "last_name": "Петров",
             "rating": 2,
+            "photo_urls": [],
             "text": "Понравилось отношение - несмотря на то, что заказ был выполнен не идеально, продавец был очень любезен и шёл... Прошла по снегу 30 метров, 5 раз упала. Спасибо мужу, поддерживал. Возврат, к сожалению.",
             "created": "минуту назад"
         },
@@ -84,6 +117,7 @@
             "first_name": "Никита",
             "last_name": "Иванов",
             "rating": 5,
+            "photo_urls": [],
             "text": "Отлично выглядят, хоть и скользковатые...",
             "created": "только что"
         },
@@ -91,6 +125,7 @@
             "first_name": "Олег",
             "last_name": "Николаев",
             "rating": 1,
+            "photo_urls": [],
             "text": "Ребёнок жалуется, что очень скользские. Пока шла до школы...",
             "created": "15 минут назад"
         },
@@ -98,6 +133,7 @@
             "first_name": "Николай",
             "last_name": "Петров",
             "rating": 2,
+            "photo_urls": [],
             "text": "",
             "created": "вчера в 12:39"
         },
@@ -107,6 +143,7 @@
             "first_name": "Иван",
             "last_name": "Петров",
             "rating": 5,
+            "photo_urls": [],
             "text": "Кроссовки хорошие. Удобные. Как по мне сшиты.",
             "created": "1 час назад"
         },
@@ -114,6 +151,12 @@
             "first_name": "Екатерина",
             "last_name": "Иванова",
             "rating": 3,
+            "photo_urls": [
+                "https://www.ninjaturtles.ru/forum/pic/12841.jpg",
+                "https://www.ninjaturtles.ru/wp-content/uploads/2012/08/Rafae%60l-kontsept-2008-2.jpg",
+                "https://i.pinimg.com/736x/62/8c/b0/628cb0e42e9043ab4b2ca24f1173d135.jpg",
+                "https://avavatar.ru/images/avatars/52/avatar_SiuLaDDW60uiYtI7.jpg"
+            ],
             "text": "Скользские ужасно.",
             "created": "12 минут назад"
         },
@@ -121,6 +164,13 @@
             "first_name": "Евгения",
             "last_name": "Петрова",
             "rating": 4,
+            "photo_urls": [
+                "https://rococo.flowers/wp-content/uploads/2024/06/image_rocotop101.jpeg",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi3vlT5dDAjGcfFMvv4WTu5P-go2UphNmvbQ&s",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS01RxpROJ6n6dS0NTfuvPwCyd2961IQaTAew&s",
+                "https://avatars.mds.yandex.net/i?id=0a8dc1da8b47ac63e1b06dadc55e1a3f_l-5141109-images-thumbs&n=27&h=480&w=480",
+                "https://avatarko.ru/img/kartinka/1/Crazy_Frog.jpg"
+            ],
             "text": "Прошла по снегу 30 метров, 5 раз упала. Спасибо мужу, поддерживал. Возврат, к сожалению.",
             "created": "35 минут назад"
         },
@@ -128,6 +178,7 @@
             "first_name": "Илья",
             "last_name": "Петров",
             "rating": 2,
+            "photo_urls": [],
             "text": "Понравилось отношение - несмотря на то, что заказ был выполнен не идеально, продавец был очень любезен и шёл... Прошла по снегу 30 метров, 5 раз упала. Спасибо мужу, поддерживал. Возврат, к сожалению.",
             "created": "минуту назад"
         },
@@ -135,6 +186,7 @@
             "first_name": "Никита",
             "last_name": "Иванов",
             "rating": 5,
+            "photo_urls": [],
             "text": "Отлично выглядят, хоть и скользковатые...",
             "created": "только что"
         },
@@ -142,6 +194,7 @@
             "first_name": "Олег",
             "last_name": "Николаев",
             "rating": 1,
+            "photo_urls": [],
             "text": "Ребёнок жалуется, что очень скользские. Пока шла до школы...",
             "created": "15 минут назад"
         },
@@ -149,8 +202,9 @@
             "first_name": "Николай",
             "last_name": "Петров",
             "rating": 2,
+            "photo_urls": [],
             "text": "",
             "created": "вчера в 12:39"
-        },
+        }
     ]
 }

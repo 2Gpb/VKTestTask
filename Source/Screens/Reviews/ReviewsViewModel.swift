@@ -5,6 +5,8 @@ final class ReviewsViewModel: NSObject {
 
     /// Замыкание, вызываемое при изменении `state`.
     var onStateChange: ((State) -> Void)?
+    /// Замыкание, вызываемое при изменении `loadingState`.
+    var onLoadingStateChange: ((Bool) -> Void)?
 
     private var state: State
     private let reviewsProvider: ReviewsProvider
@@ -34,8 +36,17 @@ extension ReviewsViewModel {
     /// Метод получения отзывов.
     func getReviews() {
         guard state.shouldLoad else { return }
+        if state.offset == 0 {
+            onLoadingStateChange?(true)
+        }
+        
         state.shouldLoad = false
-        reviewsProvider.getReviews(completion: self.gotReviews)
+        reviewsProvider.getReviews(completion: gotReviews)
+    }
+    
+    func refreshReviews() {
+        state.offset = 0
+        reviewsProvider.getReviews(completion: gotReviews)
     }
 
 }
@@ -46,17 +57,28 @@ private extension ReviewsViewModel {
 
     /// Метод обработки получения отзывов.
     func gotReviews(_ result: ReviewsProvider.GetReviewsResult) {
+        defer {
+            onLoadingStateChange?(false)
+            onStateChange?(state)
+        }
+        
         do {
             let data = try result.get()
             let reviews = try decoder.decode(Reviews.self, from: data)
-            state.items += reviews.items.map(makeReviewItem)
+            let newItems = reviews.items.map(makeReviewItem)
+            
+            if state.offset == 0 {
+                state.items = newItems
+            } else {
+                state.items.append(contentsOf: newItems)
+            }
+            
             state.offset += state.limit
             state.shouldLoad = state.offset < reviews.count
             state.countItem = makeCountItemItem(reviews.count)
         } catch {
             state.shouldLoad = true
         }
-        onStateChange?(state)
     }
 
     /// Метод, вызываемый при нажатии на кнопку "Показать полностью...".
@@ -83,12 +105,14 @@ private extension ReviewsViewModel {
     func makeReviewItem(_ review: Review) -> ReviewItem {
         let fullName = "\(review.firstName) \(review.lastName)".attributed(font: .username)
         let ratingImage = ratingRenderer.ratingImage(review.rating)
+        let reviewPhotoUrls = review.photoUrls
         let reviewText = review.text.attributed(font: .text)
         let created = review.created.attributed(font: .created, color: .created)
         
         let item = ReviewItem(
             fullName: fullName,
             ratingImage: ratingImage,
+            photoUrls: reviewPhotoUrls,
             reviewText: reviewText,
             created: created,
             onChangeReviewTextState: { [weak self] id, textState in
