@@ -106,12 +106,14 @@ private extension ReviewsViewModel {
     func makeReviewItem(_ review: Review) -> ReviewItem {
         let fullName = "\(review.firstName) \(review.lastName)".attributed(font: .username)
         let ratingImage = ratingRenderer.ratingImage(review.rating)
+        let reviewPhotoUrls = review.photoUrls
         let reviewText = review.text.attributed(font: .text)
         let created = review.created.attributed(font: .created, color: .created)
         
         let item = ReviewItem(
             fullName: fullName,
             ratingImage: ratingImage,
+            photoUrls: reviewPhotoUrls,
             reviewText: reviewText,
             created: created,
             onChangeReviewTextState: { [weak self] id, textState in
