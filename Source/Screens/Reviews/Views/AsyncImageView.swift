@@ -1,10 +1,3 @@
-//
-//  ImageView.swift
-//  UpNews
-//
-//  Created by Peter on 03.02.2025.
-//
-
 import UIKit
 
 final class AsyncImageView: UIView {

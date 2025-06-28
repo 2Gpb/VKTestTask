@@ -12,6 +12,7 @@ struct ReviewCellConfig {
     let fullName: NSAttributedString
     /// Имадж звезд рейтинга.
     let ratingImage: UIImage
+    /// Ссылки на картинки
     let photoUrls: [String]
     /// Текст отзыва.
     let reviewText: NSAttributedString
@@ -93,6 +94,7 @@ private extension ReviewCellConfig {
     /// Текст кнопки "Скрыть".
     static let hideText = "Скрыть"
         .attributed(font: .showMore, color: .showMore)
+    
 }
 
 // MARK: - Cell
@@ -134,6 +136,7 @@ final class ReviewCell: UITableViewCell {
         super.prepareForReuse()
         reviewPhotosView.prepareForReuse()
     }
+    
 }
 
 // MARK: - Private
@@ -186,6 +189,7 @@ private extension ReviewCell {
         showMoreButton.titleLabel?.lineBreakMode = .byWordWrapping
         showMoreButton.addTarget(self, action: #selector(showMoreTapped), for: .touchUpInside)
     }
+    
 }
 
 // MARK: - Actions
@@ -198,6 +202,7 @@ private extension ReviewCell {
         let newState: ReviewCellConfig.ReviewTextState = config.textState == .collapsed ? .expanded : .collapsed
         config.onChangeReviewTextState(config.id, newState)
     }
+    
 }
 
 // MARK: - Layout
@@ -271,7 +276,12 @@ extension ReviewCellLayout {
     
     // MARK: - Расчет фреймов
     
-    private func layoutAvatarAndName(config: Config, topY: CGFloat, leftOffset: CGFloat, contentWidth: CGFloat) -> CGFloat {
+    private func layoutAvatarAndName(
+        config: Config,
+        topY: CGFloat,
+        leftOffset: CGFloat,
+        contentWidth: CGFloat
+    ) -> CGFloat {
         avatarImageViewFrame = CGRect(origin: CGPoint(x: insets.left, y: topY), size: Self.avatarSize)
 
         fullNameLabelFrame = CGRect(
@@ -301,7 +311,12 @@ extension ReviewCellLayout {
         return reviewPhotosViewFrame.maxY + photosToTextSpacing
     }
 
-    private func layoutReviewText(config: Config, topY: CGFloat, leftOffset: CGFloat, contentWidth: CGFloat) -> CGFloat {
+    private func layoutReviewText(
+        config: Config,
+        topY: CGFloat,
+        leftOffset: CGFloat,
+        contentWidth: CGFloat
+    ) -> CGFloat {
         guard !config.reviewText.isEmpty() else {
             showMoreButtonFrame = .zero
             return topY
@@ -332,7 +347,12 @@ extension ReviewCellLayout {
         return currentMaxY
     }
 
-    private func layoutCreatedLabel(config: Config, topY: CGFloat, leftOffset: CGFloat, contentWidth: CGFloat) -> CGFloat {
+    private func layoutCreatedLabel(
+        config: Config,
+        topY: CGFloat,
+        leftOffset: CGFloat,
+        contentWidth: CGFloat
+    ) -> CGFloat {
         createdLabelFrame = CGRect(
             origin: CGPoint(x: leftOffset, y: topY),
             size: config.created.boundingRect(width: contentWidth).size

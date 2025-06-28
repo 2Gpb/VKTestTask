@@ -36,18 +36,23 @@ extension CountCellConfig: TableCellConfig {
 // MARK: - Cell
 
 final class CountCell: UITableViewCell {
+    
+    // MARK: - Properties
 
     fileprivate var config: Config?
 
     fileprivate let reviewCountLabel = UILabel()
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    
+    // MARK: - Lifecycle
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupCell()
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func layoutSubviews() {
@@ -55,6 +60,7 @@ final class CountCell: UITableViewCell {
         guard let layout = config?.layout else { return }
         reviewCountLabel.frame = layout.reviewCountLabelFrame
     }
+    
 }
 
 // MARK: - Private
